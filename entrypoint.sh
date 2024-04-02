@@ -35,6 +35,10 @@ if [[ "${INPUT_ONLYDIRTY}" == true ]]; then
   pint_command+=" --dirty"
 fi
 
+if [[ "${INPUT_FILES}" ]]; then
+  pint_command+=" ${INPUT_FILES}"
+fi
+
 echo "Running Command: " "${pint_install_command[@]}"
 
 ${pint_install_command[@]}

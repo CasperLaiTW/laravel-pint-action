@@ -21,13 +21,17 @@ inputs:
   onlyDirty:
     description: "only format changed files"
     required: false
-    
+
   pintVersion:
     description: "laravel/pint composer version to install a specific version."
     required: false
-   
+
   useComposer:
     description: "Use Laravel Pint version from project composer lock file. Lock file must be preset to use this flag."
+    required: false
+
+  files:
+    description: "only format specified files"
     required: false
 runs:
   using: 'docker'
@@ -40,6 +44,7 @@ runs:
     - ${{ inputs.only-dirty }}
     - ${{ inputs.pint-version }}
     - ${{ inputs.use-composer }}
+    - ${{ inputs.files }}
 branding:
-  icon: 'eye'  
+  icon: 'eye'
   color: 'gray-dark'
